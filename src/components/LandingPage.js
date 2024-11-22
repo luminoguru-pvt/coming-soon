@@ -31,7 +31,7 @@ const LandingPage = () => {
                                 The report aids in designing a precise treatment and improving health
                                 outcomes.
                             </p>
-                            <button className="register-button">Register Interest</button>
+                            {/* <button className="register-button">Register Interest</button> */}
                         </div>
 
                         <div className="image-section">
