@@ -11,7 +11,7 @@ const LandingPage = () => {
                     <div className='container'>
                         <div style={{ display: "flex" }} className="logo">
                             <img src="/flahybaseIcon.png" alt="FlahyRecovery" />
-                            <p>FLAHYRECOVERY</p>
+                            <p style={{ marginLeft: "10px" }}><b>FLAHY</b>RECOVERY</p>
                         </div>
                     </div>
                 </header>
@@ -45,23 +45,24 @@ const LandingPage = () => {
                     </div>
                 </div>
 
-                {/* <footer className="footer">
-                <p>
-                    Want to know more or get the FlahyRecovery™ test done? Please enter your
-                    email and our team will get in touch with details and updates.
-                </p>
-                <div className="email-section">
-                    <input
-                        type="email"
-                        placeholder="Enter Your Email for Latest Update"
-                        className="email-input"
-                    />
-                    <button className="submit-button">Submit</button>
-                </div>
-                <div className="footer-text">
-                    <p>© 2024 © Flahybase. All Rights Reserved | Powered By Flahybase.com</p>
-                </div>
-            </footer> */}
+                <footer className="footer">
+                    <p>
+                        {/* Want to know more or get the FlahyRecovery™ test done? Please enter your
+                        email and our team will get in touch with details and updates. */}
+                        Want to know more or get the FlahyRecovery™ test done? Please email contact@flahybase.com
+                    </p>
+                    {/* <div className="email-section">
+                        <input
+                            type="email"
+                            placeholder="Enter Your Email for Latest Update"
+                            className="email-input"
+                        />
+                        <button className="submit-button">Submit</button>
+                    </div> */}
+                    <div className="footer-text">
+                        <p>© 2024 © Flahybase. All Rights Reserved | Powered By <a style={{color: "#2caea6"}} href='https://flahybase.com/'>Flahybase.com</a></p>
+                    </div>
+                </footer>
             </div>
         </>
     );

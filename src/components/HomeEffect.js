@@ -16,6 +16,7 @@ const HomeEffect = () => {
     return (
         <div>
             <Particles
+                style={{ marginTop: "90px" }}
                 id="tsparticles"
                 init={particlesInit}
                 loaded={particlesLoaded}

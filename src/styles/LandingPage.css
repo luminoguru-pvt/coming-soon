@@ -138,8 +138,13 @@ body {
 /* Footer */
 .footer {
   padding: 20px;
-  background: #f8f8f8;
+  background: #fff;
   text-align: center;
+  opacity: 1;
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
 .footer p {
