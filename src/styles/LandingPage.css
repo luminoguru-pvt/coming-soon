@@ -3,23 +3,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  /* font-family: "Inter", sans-serif; */
+  font-family: "Inter", Montserrat;
   color: #333;
-  background-image: url(../../public/bg.png);
+  background-image: url(../../public/bg.svg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 .container {
   max-width: 1200px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   gap: 20px;
   align-items: center;
+  width: calc(100% - 30px);
+  margin: 0 auto;
 }
 .landing-page {
   text-align: center;
@@ -31,11 +33,23 @@ body {
 /* Header */
 .header {
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #fff;
+  z-index: 15;
+  position: sticky;
+  top: 0;
 }
 
 .logo img {
   max-width: 120px;
+  height: 41px;
+  width: 50px;
+}
+
+.logo p {
+  margin-left: 20px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
 }
 
 /* Content Section */
@@ -45,7 +59,7 @@ body {
   align-items: center;
   justify-content: space-around;
   padding: 20px;
-  height: 100%;
+  min-height: calc(100vh - 305px);
 }
 
 .text-section {
@@ -54,6 +68,11 @@ body {
   z-index: 10;
   text-align: left;
   width: 45%;
+  background: url("/public//shadowBg.svg");
+  padding: 15px;
+  border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .text-section h1 {
@@ -80,22 +99,23 @@ body {
   font-size: 18px;
   line-height: 28px;
   margin-top: 10px;
-  font-weight: 700;
+  font-weight: 500;
   color: #000;
   margin-bottom: 0px;
 }
 .text-section p span {
   color: #5f7580;
 }
-.register-button {
-  background-color: #2caea6;
+.register-button,
+.register-button:hover {
+  background-color: #2caea6 !important;
   color: #fff;
   border: none;
   padding: 16px;
   font-size: 18px;
   font-weight: 500;
   line-height: 22px;
-  border-radius: 0px;
+  border-radius: 5px;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   margin-top: 24px;
@@ -131,8 +151,9 @@ body {
 }
 
 .product-box img {
-  position: relative;
+  max-width: 666px;
   width: 100%;
+  /* padding-top: 115px; */
 }
 
 /* Footer */
@@ -140,47 +161,69 @@ body {
   padding: 20px;
   background: #f8f8f8;
   text-align: center;
+  z-index: 10;
 }
 
 .footer p {
-  font-size: 0.9rem;
+  font-size: 16px;
   margin-bottom: 10px;
+  color: #5f7580;
 }
-
 .email-section {
   display: flex;
-  justify-content: center;
   align-items: center;
+  max-width: 448px;
+  margin: 0 auto;
+  /* border: 1px solid #2caea6; */
+  border-radius: 5px;
+  justify-content: space-between;
+  padding: 0;
+  background: #fff;
 }
-
-.email-input {
+.focussed {
+  border: 1px solid #2caea6;
+}
+.email-input,
+.email-input:focus {
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-right: 10px;
+  border-radius: 0;
+  width: 100%;
+  border: none;
+  background: #ffffff;
+  outline: none;
+  opacity: 0.6;
 }
 
-.submit-button {
-  background-color: #2aa9d4;
+.submit-button,
+.submit-button:hover {
+  background-color: #2caea6 !important;
   color: #fff;
-  border: none;
-  padding: 10px 20px;
+  border: 2px solid #2caea6 !important;
+  padding: 13px 20px;
   font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 0px 5px 5px 0px;
   cursor: pointer;
+  margin: 0;
+  outline: none;
 }
 
 .submit-button:hover {
   background-color: #238fb1;
 }
-
-.footer-text {
-  font-size: 0.8rem;
-  color: #666;
+.footer-text p {
+  font-size: 12px;
+  color: #9a9898;
+  font-weight: 300;
 }
 
 /* Responsive Styles */
+@media all and (max-width: 1280px) {
+  .content {
+    min-height: 100vh;
+  }
+}
+
 @media all and (max-width: 991px) {
   .container {
     flex-direction: column;
@@ -189,10 +232,12 @@ body {
   .product-box img {
     right: 0px;
     width: 100%;
+    padding: 0;
   }
   .content {
     padding: 50px 0px;
     align-items: baseline;
+    height: auto;
   }
   .header {
     padding-left: 0px;
@@ -202,11 +247,11 @@ body {
     font-size: 16px;
   }
   .text-section {
-    width: 100%;
-    max-width: 100%;
+    width: calc(100% - 30px);
+    margin: 0 auto;
   }
   .image-section {
-    width: 100%;
+    width: calc(100% - 30px);
   }
 }
 @media (max-width: 768px) {
@@ -216,7 +261,9 @@ body {
   .text-section h1 {
     font-size: 2rem;
   }
-
+  .footer p {
+    font-size: 14px;
+  }
   .text-section h2 {
     font-size: 1.5rem;
   }

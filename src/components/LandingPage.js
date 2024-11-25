@@ -1,27 +1,38 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import '../styles/LandingPage.css';
 import HomeEffect from './HomeEffect';
 
 const LandingPage = () => {
+    const emailSectionRef = useRef();
+    const emailRef = useRef(null);
+    const handleRegisterClick = () => {
+        if (emailRef.current) {
+            emailRef.current.scrollIntoView({ behavior: "smooth" });
+            emailRef.current.focus();
+        }
+        if (emailSectionRef) {
+            emailSectionRef.current.classList.add("focussed");
+        }
+    }
     return (
         <>
             <HomeEffect />
             <div className="landing-page">
                 <header className="header">
                     <div className='container'>
-                        <div style={{ display: "flex" }} className="logo">
+                        <div style={{ display: "flex", alignItems: "center" }} className="logo">
                             <img src="/flahybaseIcon.png" alt="FlahyRecovery" />
-                            <p>FLAHYRECOVERY</p>
+                            <p><b>FLAHY</b>RECOVERY</p>
                         </div>
                     </div>
                 </header>
 
                 <div className="content">
-                    <div className="container">
+                    <div className="container coming-soon">
                         <div className="text-section">
                             <h1>Coming Soon..</h1>
                             <h2>
-                                Enabling Precision <br /> with <span className="highlight">AI</span>
+                                Enabling Precision with <span className="highlight">AI</span>
                             </h2>
                             <p>
                                 <span>
@@ -31,7 +42,7 @@ const LandingPage = () => {
                                 The report aids in designing a precise treatment and improving health
                                 outcomes.
                             </p>
-                            {/* <button className="register-button">Register Interest</button> */}
+                            <button onClick={handleRegisterClick} className="register-button">Register Interest</button>
                         </div>
 
                         <div className="image-section">
@@ -39,29 +50,31 @@ const LandingPage = () => {
                         <img src="woman.jpg" alt="Woman in field" />
                     </div> */}
                             <div className="product-box">
-                                <img src="/productImage.png" alt="FlahyRecovery Product" />
+                                <img src="/productImage.svg" alt="FlahyRecovery Product" />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* <footer className="footer">
-                <p>
-                    Want to know more or get the FlahyRecovery™ test done? Please enter your
-                    email and our team will get in touch with details and updates.
-                </p>
-                <div className="email-section">
-                    <input
-                        type="email"
-                        placeholder="Enter Your Email for Latest Update"
-                        className="email-input"
-                    />
-                    <button className="submit-button">Submit</button>
-                </div>
-                <div className="footer-text">
-                    <p>© 2024 © Flahybase. All Rights Reserved | Powered By Flahybase.com</p>
-                </div>
-            </footer> */}
+                <footer className="footer">
+                    <p>
+                        Want to know more or get the FlahyRecovery™ test done? Please enter your
+                        email and our team will get in touch with details and updates.
+                    </p>
+                    <div ref={emailSectionRef} className="email-section">
+                        <input
+                            ref={emailRef}
+                            id='email-input'
+                            type="email"
+                            placeholder="Enter Your Email for Latest Update"
+                            className="email-input"
+                        />
+                        <button className="submit-button">Submit</button>
+                    </div>
+                    <div className="footer-text">
+                        <p>© 2024 © Flahy. All Rights Reserved | Powered By <a rel='noreferrer' target='_blank' href='https://www.flahybase.com'><u>Flahybase.com</u></a></p>
+                    </div>
+                </footer>
             </div>
         </>
     );
