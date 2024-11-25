@@ -1,19 +1,64 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react'; // <-- Make sure to import useState here
 import '../styles/LandingPage.css';
 import HomeEffect from './HomeEffect';
 
 const LandingPage = () => {
     const emailSectionRef = useRef();
     const emailRef = useRef(null);
+    const [email, setEmail] = useState(""); // Track email input
+    const [loading, setLoading] = useState(false); // Track submission state
+    const [error, setError] = useState(""); // Track error message
+    const [success, setSuccess] = useState(""); // Track success message
+    // Email validation regex pattern
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
     const handleRegisterClick = () => {
         if (emailRef.current) {
             emailRef.current.scrollIntoView({ behavior: "smooth" });
             emailRef.current.focus();
         }
-        if (emailSectionRef) {
+        if (emailSectionRef.current) {
             emailSectionRef.current.classList.add("focussed");
         }
-    }
+    };
+
+    const handleSubmit = async () => {
+        setError(""); // Clear any previous error
+        setSuccess(""); // Clear any previous success
+
+        // Validate email format
+        if (!email || !emailPattern.test(email)) {
+            setError("Please enter a valid email address.");
+            return;
+        }
+
+
+        setLoading(true);
+
+        try {
+            const response = await fetch("https://api-flahyrecovery.lusites.xyz/show-interest", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }), // Sending email as JSON payload
+            });
+
+            if (response.ok) {
+                setSuccess("We will contact you soon!");
+                setEmail(""); // Clear the input after successful submission
+            } else {
+                const errorData = await response.json();
+                setError(errorData.message || "There was an issue. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error sending email:", error);
+            setError("Something went wrong. Please try again later.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <>
             <HomeEffect />
@@ -46,9 +91,6 @@ const LandingPage = () => {
                         </div>
 
                         <div className="image-section">
-                            {/* <div className="image-circle">
-                        <img src="woman.jpg" alt="Woman in field" />
-                    </div> */}
                             <div className="product-box">
                                 <img src="/productImage.svg" alt="FlahyRecovery Product" />
                             </div>
@@ -64,12 +106,23 @@ const LandingPage = () => {
                     <div ref={emailSectionRef} className="email-section">
                         <input
                             ref={emailRef}
-                            id='email-input'
                             type="email"
                             placeholder="Enter Your Email for Latest Update"
                             className="email-input"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)} // Update email state on change
                         />
-                        <button className="submit-button">Submit</button>
+                        <button
+                            className="submit-button"
+                            onClick={handleSubmit}
+                            disabled={loading} // Disable button while loading
+                        >
+                            {loading ? 'Submitting...' : 'Submit'}
+                        </button>
+                    </div>
+                    <div className='alert-message'>
+                        {error && <p className="error-message">{error}</p>}
+                        {success && <p className="success-message">{success}</p>}
                     </div>
                     <div className="footer-text">
                         <p>© 2024 © Flahy. All Rights Reserved | Powered By <a rel='noreferrer' target='_blank' href='https://www.flahybase.com'><u>Flahybase.com</u></a></p>

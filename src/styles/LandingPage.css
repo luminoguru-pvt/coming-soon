@@ -59,7 +59,7 @@ body {
   align-items: center;
   justify-content: space-around;
   padding: 20px;
-  min-height: calc(100vh - 305px);
+  height: calc(100vh - 305px);
 }
 
 .text-section {
@@ -153,13 +153,13 @@ body {
 .product-box img {
   max-width: 666px;
   width: 100%;
-  /* padding-top: 115px; */
+  padding-top: 115px;
 }
 
 /* Footer */
 .footer {
   padding: 20px;
-  background: #fff;
+  background: #f8f8f8;
   text-align: center;
   z-index: 10;
 }
@@ -210,6 +210,19 @@ body {
 
 .submit-button:hover {
   background-color: #238fb1;
+}
+.alert-message {
+  display: flex;
+    align-items: center;
+    max-width: 448px;
+    margin: 0 auto;
+}
+.alert-message  p {
+  margin: 5px 0;
+  color: green;
+}
+.alert-message  p.error-message {
+  color: red
 }
 .footer-text p {
   font-size: 12px;
