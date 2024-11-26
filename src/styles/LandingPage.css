@@ -4,7 +4,7 @@
 body {
   margin: 0;
   /* font-family: "Inter", sans-serif; */
-  font-family: "Inter", Montserrat;
+  font-family: "Montserrat", Inter;
   color: #333;
   background-image: url(../../public/bg.svg);
   background-size: cover;
@@ -14,13 +14,13 @@ body {
   overflow-x: hidden;
 }
 .container {
-  max-width: 1200px;
+  max-width: 1470px;
+  width: calc(100% - 30px);
   padding-left: 15px;
   padding-right: 15px;
   display: flex;
   gap: 20px;
   align-items: center;
-  width: calc(100% - 30px);
   margin: 0 auto;
 }
 .landing-page {
@@ -59,17 +59,15 @@ body {
   align-items: center;
   justify-content: space-around;
   padding: 20px;
-  min-height: calc(100vh - 305px);
+  height:780px;
 }
 
 .text-section {
-  max-width: 600px;
-  margin-bottom: 20px;
   z-index: 10;
   text-align: left;
-  width: 45%;
-  background: url("/public//shadowBg.svg");
-  padding: 15px;
+  background-image: url("/public/shadowBg.png");
+  background-color: rgb(255 255 255 / 57%);
+  padding: 45px 25px;
   border-radius: 10px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -85,8 +83,8 @@ body {
 
 .text-section h2 {
   font-size: 45px;
-  font-weight: 500;
-  margin-top: 30px;
+  font-weight: 600;
+  margin-top: 22px;
   margin-bottom: 0px;
 }
 
@@ -96,22 +94,23 @@ body {
 }
 
 .text-section p {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 28px;
   margin-top: 10px;
   font-weight: 500;
-  color: #000;
+  color: #000000;
   margin-bottom: 0px;
+  padding-right: 40px;
 }
 .text-section p span {
-  color: #5f7580;
+  color: #566167;
 }
 .register-button,
 .register-button:hover {
   background-color: #2caea6 !important;
   color: #fff;
   border: none;
-  padding: 16px;
+  padding: 15px;
   font-size: 18px;
   font-weight: 500;
   line-height: 22px;
@@ -131,7 +130,6 @@ body {
   align-items: center;
   position: relative;
   z-index: 10;
-  width: 55%;
 }
 
 .image-circle {
@@ -151,9 +149,7 @@ body {
 }
 
 .product-box img {
-  max-width: 666px;
-  width: 100%;
-  /* padding-top: 115px; */
+  padding-top: 115px;
 }
 
 /* Footer */
@@ -168,13 +164,17 @@ body {
   font-size: 16px;
   margin-bottom: 10px;
   color: #5f7580;
+  font-weight: 500;
+}
+.footer-text p a {
+  color: #9a9898;
 }
 .email-section {
   display: flex;
   align-items: center;
   max-width: 448px;
   margin: 0 auto;
-  /* border: 1px solid #2caea6; */
+  border: 1px solid #2caea6;
   border-radius: 5px;
   justify-content: space-between;
   padding: 0;
@@ -214,14 +214,28 @@ body {
 .footer-text p {
   font-size: 12px;
   color: #9a9898;
-  font-weight: 300;
+  font-weight: 500;
+  padding-top: 25px;
+  margin-bottom: 0;
 }
 
 /* Responsive Styles */
+@media (max-width: 1599px) {
+  .product-box img {
+    max-width: 580px;
+  }
+  .content {
+    height: 600px;
+  }
+}
+
 @media all and (max-width: 1280px) {
   .content {
-    min-height: 100vh;
+    min-height: calc(100vh - 300px);
   }
+  .product-box img {
+    max-width: 500px;
+}
 }
 
 @media all and (max-width: 991px) {
@@ -245,28 +259,34 @@ body {
   }
   .text-section p {
     font-size: 16px;
+    padding-right: 0;
   }
   .text-section {
-    width: calc(100% - 30px);
+    padding: 15px 15px 30px 15px;
     margin: 0 auto;
   }
   .image-section {
     width: calc(100% - 30px);
   }
+  .product-box {
+    margin: 0 auto;
+  }
+
 }
 @media (max-width: 768px) {
   .content {
     flex-direction: column;
   }
   .text-section h1 {
-    font-size: 2rem;
-  }
+    font-size: 26px;
+}
   .footer p {
     font-size: 14px;
   }
   .text-section h2 {
-    font-size: 1.5rem;
-  }
+    font-size: 24px;
+    margin-top: 10px;
+}
 
   .image-section {
     flex-direction: column;

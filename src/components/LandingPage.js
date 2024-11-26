@@ -50,7 +50,7 @@ const LandingPage = () => {
                         <img src="woman.jpg" alt="Woman in field" />
                     </div> */}
                             <div className="product-box">
-                                <img src="/productImage.svg" alt="FlahyRecovery Product" />
+                                <img src="/productImage.png" alt="FlahyRecovery Product" />
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@ const LandingPage = () => {
                         <button className="submit-button">Submit</button>
                     </div>
                     <div className="footer-text">
-                        <p>© 2024 © Flahy. All Rights Reserved | Powered By <a rel='noreferrer' target='_blank' href='https://www.flahybase.com'><u>Flahybase.com</u></a></p>
+                        <p>2024 © Flahy. All Rights Reserved | Powered By <a rel='noreferrer' target='_blank' href='https://www.flahybase.com'><u>Flahybase.com</u></a></p>
                     </div>
                 </footer>
             </div>
