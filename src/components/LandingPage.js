@@ -73,6 +73,7 @@ const LandingPage = () => {
                 </header>
 
                 <div className="content">
+                <img className="circle-bg" src="/bg-circle.png" alt="FlahyRecovery" />
                     <div className="container coming-soon">
                         <div className="text-section">
                             <h1>Coming Soon..</h1>
@@ -82,9 +83,8 @@ const LandingPage = () => {
                             <p>
                                 <span>
                                     FlahyRecovery™ is an algorithmic immune subtyping test that leverages
-                                    Artificial Intelligence to analyze the Tumor Microenvironment (TME).
-                                </span>
-                                The report aids in designing a precise treatment and improving health
+                                    Artificial Intelligence to analyze the <br/>Tumor Microenvironment (TME).
+                                </span> The report aids in designing a precise treatment and improving health
                                 outcomes.
                             </p>
                             <button onClick={handleRegisterClick} className="register-button">Register Interest</button>
@@ -92,7 +92,7 @@ const LandingPage = () => {
 
                         <div className="image-section">
                             <div className="product-box">
-                                <img src="/productImage.svg" alt="FlahyRecovery Product" />
+                                <img src="/productImage.png" alt="FlahyRecovery Product" />
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@ const LandingPage = () => {
                         {success && <p className="success-message">{success}</p>}
                     </div>
                     <div className="footer-text">
-                        <p>© 2024 © Flahy. All Rights Reserved | Powered By <a rel='noreferrer' target='_blank' href='https://www.flahybase.com'><u>Flahybase.com</u></a></p>
+                        <p>2024 © Flahy. All Rights Reserved | Powered By <a rel='noreferrer' target='_blank' href='https://www.flahybase.com'><u>Flahybase.com</u></a></p>
                     </div>
                 </footer>
             </div>
