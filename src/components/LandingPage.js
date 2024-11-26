@@ -91,9 +91,6 @@ const LandingPage = () => {
                         </div>
 
                         <div className="image-section">
-                            {/* <div className="image-circle">
-                        <img src="woman.jpg" alt="Woman in field" />
-                    </div> */}
                             <div className="product-box">
                                 <img src="/productImage.png" alt="FlahyRecovery Product" />
                             </div>

@@ -164,7 +164,7 @@ body {
 /* Footer */
 .footer {
   padding: 20px;
-  background: #fff;
+  background: #f8f8f8;
   text-align: center;
   z-index: 9999;
 }
@@ -219,6 +219,19 @@ body {
 
 .submit-button:hover {
   background-color: #238fb1;
+}
+.alert-message {
+  display: flex;
+    align-items: center;
+    max-width: 448px;
+    margin: 0 auto;
+}
+.alert-message  p {
+  margin: 5px 0;
+  color: green;
+}
+.alert-message  p.error-message {
+  color: red
 }
 .footer-text p {
   font-size: 12px;
