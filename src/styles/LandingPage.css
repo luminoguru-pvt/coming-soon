@@ -7,6 +7,7 @@ body {
   font-family: "Montserrat", Inter;
   color: #333;
   background-image: url(../../public/bg.svg);
+  background: radial-gradient(circle at 20% 50%, #FFECB9, transparent 70%), radial-gradient(circle at 80% 50%, #2CAEA6, transparent 70%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -34,9 +35,17 @@ body {
 .header {
   padding: 10px;
   background-color: #fff;
-  z-index: 15;
+  z-index: 9999;
   position: sticky;
   top: 0;
+}
+.circle-bg{
+    position: absolute;
+    width: 1200px;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    opacity: .85;
 }
 
 .logo img {
@@ -59,14 +68,14 @@ body {
   align-items: center;
   justify-content: space-around;
   padding: 20px;
-  height:780px;
+  min-height: calc(100vh - 283px);
 }
 
 .text-section {
-  z-index: 10;
+  z-index: 999;
   text-align: left;
   background-image: url("/public/shadowBg.png");
-  background-color: rgb(255 255 255 / 57%);
+  /* background-color: rgb(255 255 255 / 57%); */
   padding: 45px 25px;
   border-radius: 10px;
   background-size: cover;
@@ -157,7 +166,7 @@ body {
   padding: 20px;
   background: #fff;
   text-align: center;
-  z-index: 10;
+  z-index: 9999;
 }
 
 .footer p {
@@ -218,7 +227,23 @@ body {
   padding-top: 25px;
   margin-bottom: 0;
 }
-
+.alert-message {
+  display: flex;
+    align-items: center;
+    max-width: 448px;
+    margin: 0 auto;
+}
+.alert-message  p {
+  margin: 5px 0;
+  color: #007c00;
+  font-size: 14px;
+  font-weight: 400;
+}
+.alert-message p.error-message {
+  color: #ff0000cc;
+  font-size: 14px;
+  font-weight: 400;
+}
 /* Responsive Styles */
 @media (max-width: 1599px) {
   .product-box img {
@@ -227,6 +252,13 @@ body {
   .content {
     height: 600px;
   }
+}
+@media (min-width: 1660px) {
+.content {
+    height: calc(100vh - 320px);
+    min-height: auto;
+  }
+  
 }
 
 @media all and (max-width: 1280px) {
@@ -239,6 +271,9 @@ body {
 }
 
 @media all and (max-width: 991px) {
+  .circle-bg {
+    width: 700px;
+  }
   .container {
     flex-direction: column;
     align-items: flex-start;
@@ -274,9 +309,19 @@ body {
 
 }
 @media (max-width: 768px) {
-  .content {
-    flex-direction: column;
-  }
+  body {
+    color: #333;
+    background-image: url(http://localhost:3000/static/media/bg.95bde9c54bb2106d6393.svg);
+}
+.circle-bg{
+  display: none;
+}
+.content {
+  padding: 50px 0px 0px 0px;
+  align-items: baseline;
+  height: auto;
+  flex-direction: column;
+}
   .text-section h1 {
     font-size: 26px;
 }
@@ -296,5 +341,14 @@ body {
   .image-circle {
     margin-right: 0;
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .email-input, .email-input:focus {
+    font-size: 14px;
+  }
+  .submit-button, .submit-button:hover {
+    padding: 13px 13px;
   }
 }
